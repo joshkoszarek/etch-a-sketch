@@ -12,3 +12,23 @@ for (let i = 0; i < (userInputForGrid **2); i++){
 
 }
 
+
+
+let gridHoveredOver = document.querySelectorAll(".grid-element"); 
+gridHoveredOver.forEach((gridBox) => { 
+    gridBox.addEventListener("mouseover", (e) =>{ 
+        e.target.classList.add('draw');
+    });
+});
+
+/*
+gridHoveredOver.addEventListener("mouseover", () => { 
+    console.log(); 
+});
+*/ 
+
+/*
+gridHoveredOver.addEventListener("click", (e) => { 
+    e.target.style.backgroundColor = 'blue';
+})
+*/
