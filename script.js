@@ -7,28 +7,44 @@ const white_background_color_btn = document.querySelector("#white");
 const container = document.querySelector('.main-container')
 
 const reset_btn = document.querySelector("#reset-btn"); 
+const one_hundred_btn = document.querySelector("#one-hundred"); 
+const sixteen_btn = document.querySelector("#sixteen");
+const custom_btn = document.querySelector("#custom-btn");
 
 //let userInputForGrid = Number(prompt('Please enter a number between 1 and 100:'));
-let userInputForGrid = 16;
+//let userInputForGrid = 16;
 
-for (let i = 0; i < (userInputForGrid **2); i++){ 
+
+
+function createGrid(squareGridLength) { 
+    for (let i = 0; i < (squareGridLength **2); i++){ 
     let newGridItem = document.createElement('div');
     newGridItem.setAttribute("class", "grid-element"); 
    
-    let gridElementSize = 640/userInputForGrid;
+    let gridElementSize = 640/squareGridLength;
     newGridItem.setAttribute("style", `height: ${gridElementSize}px; width: ${gridElementSize}px;`);
     container.appendChild(newGridItem); 
 
+    }
+    let gridHoveredOver = document.querySelectorAll(".grid-element"); 
+        gridHoveredOver.forEach((gridBox) => { 
+        gridBox.addEventListener("mouseover", (e) =>{ 
+            e.target.classList.add('draw');
+        });
+    });
+
 }
 
+function destroyGrid() { 
+    let parentContainer = document.querySelector(".main-container"); 
+    while (parentContainer.firstChild){ 
+        parentContainer.removeChild(parentContainer.firstChild);
+    }
+}
+
+createGrid(16);
 let gridHoveredOver = document.querySelectorAll(".grid-element"); 
-gridHoveredOver.forEach((gridBox) => { 
-    gridBox.addEventListener("mouseover", (e) =>{ 
-        e.target.classList.add('draw');
-    });
-});
-
-
+sixteen_btn.classList.add("button-selected");
 /*
 Pen Button To Change Color
 */
@@ -110,4 +126,40 @@ reset_btn.addEventListener('click', () => {
     blue_btn.classList.add("highlight-selection");
     orange_btn.classList.remove("highlight-selection");
     green_btn.classList.remove("highlight-selection");
+})
+
+one_hundred_btn.addEventListener('click', () => { 
+    destroyGrid();
+    createGrid(100);
+    black_background_color_btn.classList.remove('highlight-selection');
+    sixteen_btn.classList.remove("button-selected");
+    one_hundred_btn.classList.add("button-selected"); 
+    custom_btn.classList.remove("button-selected");
+    custom_btn.textContent = `Custom`;
+    gridHoveredOver = document.querySelectorAll(".grid-element");
+})
+
+sixteen_btn.addEventListener('click', () => { 
+    destroyGrid();
+    createGrid(16);
+    black_background_color_btn.classList.remove('highlight-selection');
+    sixteen_btn.classList.add("button-selected");
+    one_hundred_btn.classList.remove("button-selected"); 
+    custom_btn.classList.remove("button-selected");
+    custom_btn.textContent = `Custom`;
+    gridHoveredOver = document.querySelectorAll(".grid-element");
+})
+
+custom_btn.addEventListener('click', () => { 
+    let userInputForGrid = Number(prompt('Please enter a number between 1 and 100:'));
+    destroyGrid();
+    createGrid(userInputForGrid); 
+    black_background_color_btn.classList.remove('highlight-selection');
+    sixteen_btn.classList.remove("button-selected");
+    one_hundred_btn.classList.remove("button-selected"); 
+    custom_btn.classList.add("button-selected");
+    custom_btn.textContent = `Custom: ${userInputForGrid} `;
+    
+    gridHoveredOver = document.querySelectorAll(".grid-element");
+
 })

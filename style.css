@@ -92,12 +92,7 @@ p {
     border-radius: 20px;
     font-weight: 600;
 }
-#custom-btn { 
-    border: 2px solid rgba(160, 50, 7, 0.74);
-    background-color: rgba(160, 50, 7, 0.74);
-    border-width: 0;
 
-}
 /*
 --------------------------------
 Drawing Board Styles
@@ -108,7 +103,7 @@ Drawing Board Styles
     flex-wrap: wrap;
     width: 640px;
     height: 640px;
-    background-color: grey;
+    
 
 }
 .grid-element { 
@@ -151,4 +146,6 @@ Drawing Board Styles
 }
 
 
-
+.button-selected { 
+    background-color: rgba(160, 50, 7, 0.74); ;
+}
