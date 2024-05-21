@@ -57,16 +57,16 @@ p {
 
 #first-color { 
     background-color: rgba(0, 255, 255, 0.637);
-    border: 2px solid rgba(0, 255, 255, 0.637);
+   
 }
 #second-color { 
     background-color: rgba(255, 136, 0, 0.637);
-    border: 2px solid rgba(255, 136, 0, 0.637);
+   
 
 }
 #third-color { 
     background-color: rgba(0, 255, 149, 0.637);
-    border: 2px solid rgba(0, 255, 149, 0.637);
+   
 
 }
 
@@ -121,4 +121,20 @@ Drawing Board Styles
 .draw{ 
     background-color: blue;
 
+}
+
+.draw.blue { 
+    background-color: rgba(0, 255, 255, 0.637);
+}
+
+.draw.orange { 
+    background-color: rgba(255, 136, 0, 0.637);
+}
+
+.draw.green { 
+    background-color: rgba(0, 255, 149, 0.637);
+}
+
+.highlight-selection { 
+    border: 2px solid rgba(255, 255, 255, 0.945);
 }
