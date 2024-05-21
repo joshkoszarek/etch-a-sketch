@@ -1,7 +1,7 @@
 console.log('hello there'); 
 
-let userInputForGrid = Number(prompt('Please enter a number between 1 and 100:'));
-
+//let userInputForGrid = Number(prompt('Please enter a number between 1 and 100:'));
+let userInputForGrid = 16;
 const container = document.querySelector('.main-container')
 for (let i = 0; i < (userInputForGrid **2); i++){ 
     let newGridItem = document.createElement('div');
